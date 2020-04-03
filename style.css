@@ -5,13 +5,20 @@ body {
   margin: 2em;
 }
 
-h1 {
-  font-style: italic;
-  color: #373fff;
-}
-
 .container { 
   text-align: center; 
+}
+
+img {
+  width: 400px; 
+  height: 400px; 
+}
+
+@media only screen and (max-width: 450px) {
+  img {
+    max-width: 100%;
+    height: auto
+  }
 }
 
 .social-links a {
