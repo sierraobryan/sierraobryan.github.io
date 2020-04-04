@@ -10,11 +10,11 @@ body {
 }
 
 img {
-  width: 400px; 
-  height: 400px; 
+  width: 500px; 
+  height: 500px; 
 }
 
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 500px) {
   img {
     max-width: 100%;
     height: auto
