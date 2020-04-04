@@ -25,6 +25,19 @@
       }
     </script>
 
+    <script>
+      document.onclick = userClicked;
+      function userClicked() {
+        var x = event.clientX - 150;
+        var y = event.clientY - 85;
+        var firework = document.getElementById("firework");
+        firework.style.display = "";
+        firework.style.position = "absolute";
+        firework.style.left = x + "px";
+        firework.style.top = y + "px";
+      }
+    </script>
+
     <script
       defer
       src="https://use.fontawesome.com/releases/v5.8.1/js/brands.js"
@@ -56,10 +69,10 @@
         document.querySelector(".yes-image").setAttribute("src", imgsrc);
       </script>
       <p>
-        <font face="Courier New" size="5">YOU CAN!!</font>
+        <font face="Courier New" size="5">OF COURSE YOU CAN!!</font>
         <font face="Courier New" size="3">(IF YOU WANT TO)</font> <br />
         <font face="Courier New" size="2"
-          >(if not, that's cool too - do what what makes you happy)</font
+          >(if not, that's cool too - do what you love)</font
         >
       </p>
 
@@ -69,7 +82,7 @@
 
       <p>
         <font face="Courier New" size="3">
-          See the code for this website on
+          View the poorly writtem code for this website on
           <a href="https://github.com/sierraobryan/sierraobryan.github.io"
             >Github</a
           >
@@ -129,5 +142,16 @@
     </p>
 
     <hr />
+
+    <img
+      alt="firework"
+      id="firework"
+      class="small"
+      style="display: none"
+      src="https://cdn.glitch.com/f5f15289-fb5e-441e-bf01-6749baec062f%2F8025d8cb93938f5b55a557e862c6e772.gif?v=1586032360025"
+    />
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>
