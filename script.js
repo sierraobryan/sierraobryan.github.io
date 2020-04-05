@@ -21,8 +21,8 @@ var fireworkStyles = [
 ];
 document.onclick = userClicked;
 function userClicked() {
-  var x = event.clientX;
-  var y = event.clientY;
+  var x = event.clientX + window.pageXOffset;
+  var y = event.clientY + window.pageYOffset;
   var randomIndex = Math.floor(Math.random() * fireworkStyles.length);
   var firework = document.getElementById("firework");
   firework.setAttribute("class", fireworkStyles[randomIndex]);
