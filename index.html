@@ -23,9 +23,10 @@
         var randomIndex = Math.floor(Math.random() * imageURLs.length);
         return imageURLs[randomIndex];
       }
-    </script>
 
-    <script>
+      let counter = 0;
+      var fireworkSrc =
+        "https://cdn.glitch.com/f5f15289-fb5e-441e-bf01-6749baec062f%2F8025d8cb93938f5b55a557e862c6e772.gif?v=1586032360025";
       document.onclick = userClicked;
       function userClicked() {
         var x = event.clientX - 150;
@@ -35,6 +36,22 @@
         firework.style.position = "absolute";
         firework.style.left = x + "px";
         firework.style.top = y + "px";
+        if (counter === 0) {
+          firework.setAttribute("src", fireworkSrc);
+          startTimer();
+          counter = 1;
+        }
+      }
+
+      function startTimer() {
+        setTimeout(hideImage, 4000);
+      }
+
+      function hideImage() {
+        var firework = document.getElementById("firework");
+        firework.setAttribute("src", "");
+        firework.style.display = "none";
+        counter = 0;
       }
     </script>
 
@@ -62,6 +79,8 @@
     ></script>
   </head>
   <body>
+    <img alt="firework" id="firework" class="small" style="display: none" />
+
     <center>
       <img alt="yes Image" class="yes-image" />
       <script type="text/javascript">
@@ -69,10 +88,10 @@
         document.querySelector(".yes-image").setAttribute("src", imgsrc);
       </script>
       <p>
-        <font face="Courier New" size="5">OF COURSE YOU CAN!!</font>
-        <font face="Courier New" size="3">(IF YOU WANT TO)</font> <br />
+        <font face="Courier New" size="3">IF YOU WANT TO BE</font> <br />
         <font face="Courier New" size="2"
-          >(if not, that's cool too - do what you love)</font
+          >(if not, that's cool too, <br />
+          do what you love)</font
         >
       </p>
 
@@ -82,7 +101,7 @@
 
       <p>
         <font face="Courier New" size="3">
-          View the poorly writtem code for this website on
+          View this poorly written code on
           <a href="https://github.com/sierraobryan/sierraobryan.github.io"
             >Github</a
           >
@@ -93,24 +112,29 @@
 
     <p>
       <center>
-        <button
-          type="button"
-          onclick="window.location.href = 'https://www.reddit.com/r/learnprogramming/';"
+        <a
+          class="noLinkdecoration"
+          href="https://www.reddit.com/r/learnprogramming/"
         >
-          r/learnprogramming 🚀
-        </button>
-        <button
-          type="button"
-          onclick="window.location.href = 'https://dev.to/t/codenewbie';"
+          <button type="button">
+            r/learnprogramming 🚀
+          </button>
+        </a>
+
+        <a class="noLinkdecoration" href="https://dev.to/t/codenewbie">
+          <button type="button">
+            dev.to 👋
+          </button>
+        </a>
+
+        <a
+          class="noLinkdecoration"
+          href="https://twitter.com/hashtag/CodeNewbie?src=hashtag_click"
         >
-          dev.to 👋
-        </button>
-        <button
-          type="button"
-          onclick="window.location.href = 'https://twitter.com/hashtag/CodeNewbie?src=hashtag_click';"
-        >
-          #codenewbie 🐣
-        </button>
+          <button type="button">
+            #codenewbie 🐣
+          </button>
+        </a>
       </center>
     </p>
 
@@ -129,29 +153,21 @@
 
         <div class="social-links">
           <a href="https://twitter.com/_sierraobryan">
-            <i class="fab fa-twitter" title="Twitter"></i>
+            <i class="fab fa-twitter" title="Bad jokes on Twitter"></i>
           </a>
           <a href="https://github.com/sierraobryan">
-            <i class="fab fa-github" title="GitHub"></i>
+            <i class="fab fa-github" title="Better mobile repos on GitHub"></i>
           </a>
           <a href="https://linkedin.com/in/sierraobryan">
-            <i class="fab fa-linkedin" title="LinkedIn"></i>
+            <i
+              class="fab fa-linkedin"
+              title="Professional work on LinkedIn"
+            ></i>
           </a>
         </div>
       </center>
     </p>
 
     <hr />
-
-    <img
-      alt="firework"
-      id="firework"
-      class="small"
-      style="display: none"
-      src="https://cdn.glitch.com/f5f15289-fb5e-441e-bf01-6749baec062f%2F8025d8cb93938f5b55a557e862c6e772.gif?v=1586032360025"
-    />
-
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="script.js"></script>
   </body>
 </html>
