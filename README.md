@@ -1,2 +1,2 @@
 # canibeadeveloper.com
-by a NOT web developer 
+No, I am not a web developer and Yes, I copied and pasted most of this  
