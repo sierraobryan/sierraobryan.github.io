@@ -12,60 +12,6 @@
 
     <link rel="stylesheet" href="/style.css" />
 
-    <script type="text/javascript">
-      var imageURLs = [
-        "https://cdn.glitch.com/f5f15289-fb5e-441e-bf01-6749baec062f%2Fyes.gif?v=1584147536505",
-        "https://cdn.glitch.com/f5f15289-fb5e-441e-bf01-6749baec062f%2Fc6ea5d80f7074265478ffc2349358a2b_yes-gifs-get-the-best-gif-on-giphy_480-480.gif?v=1585863649855",
-        "https://cdn.glitch.com/f5f15289-fb5e-441e-bf01-6749baec062f%2Fsource.gif?v=1585863660656",
-        "https://cdn.glitch.com/f5f15289-fb5e-441e-bf01-6749baec062f%2Fgiphy.gif?v=1585863672171"
-      ];
-      function getImageSrc() {
-        var randomIndex = Math.floor(Math.random() * imageURLs.length);
-        return imageURLs[randomIndex];
-      }
-
-      let counter = 0;
-      var fireworkSrc =
-        "https://cdn.glitch.com/f5f15289-fb5e-441e-bf01-6749baec062f%2F8025d8cb93938f5b55a557e862c6e772.gif?v=1586032360025";
-      var fireworkStyles = [
-        "extra-small-firework",
-        "small-firework",
-        "medium-firework",
-        "big-firework",
-        "extra-big-firework"
-      ];
-      document.onclick = userClicked;
-      function userClicked() {
-        var x = event.clientX;
-        var y = event.clientY;
-        var randomIndex = Math.floor(Math.random() * fireworkStyles.length);
-        var firework = document.getElementById("firework");
-        firework.setAttribute("class", fireworkStyles[randomIndex]);
-        firework.style.display = "";
-        firework.style.position = "absolute";
-        firework.style.left =
-          x - firework.getBoundingClientRect().width / 2 + "px";
-        firework.style.top =
-          y - firework.getBoundingClientRect().height / 2 + "px";
-        if (counter === 0) {
-          firework.setAttribute("src", fireworkSrc);
-          startTimer();
-          counter = 1;
-        }
-      }
-
-      function startTimer() {
-        setTimeout(hideImage, 4000);
-      }
-
-      function hideImage() {
-        var firework = document.getElementById("firework");
-        firework.setAttribute("src", "");
-        firework.style.display = "none";
-        counter = 0;
-      }
-    </script>
-
     <script
       defer
       src="https://use.fontawesome.com/releases/v5.8.1/js/brands.js"
@@ -90,6 +36,7 @@
     ></script>
   </head>
   <body>
+    <script src="script.js"></script>
     <img alt="firework" id="firework" style="display: none" />
 
     <center>
@@ -102,7 +49,7 @@
         <font face="Courier New" size="3">IF YOU WANT TO BE</font> <br />
         <font face="Courier New" size="2"
           >(if not, that's cool too, <br />
-          do what you love)</font
+          do what makes you happy)</font
         >
       </p>
 
@@ -113,7 +60,9 @@
       <p>
         <font face="Courier New" size="3">
           View this poorly written code on
-          <a href="https://github.com/sierraobryan/sierraobryan.github.io"
+          <a
+            href="https://github.com/sierraobryan/sierraobryan.github.io"
+            title="This repo on Github"
             >Github</a
           >
           ❤️
@@ -127,13 +76,21 @@
           class="noLinkdecoration"
           href="https://www.reddit.com/r/learnprogramming/"
         >
-          <button type="button">
+          <button
+            class="button"
+            type="button"
+            title="Learn programming on Reddit"
+          >
             r/learnprogramming 🚀
           </button>
         </a>
 
-        <a class="noLinkdecoration" href="https://dev.to/t/codenewbie">
-          <button type="button">
+        <a
+          class="noLinkdecoration"
+          href="https://dev.to/t/codenewbie"
+          title="Welcome to Dev.to"
+        >
+          <button class="button" type="button">
             dev.to 👋
           </button>
         </a>
@@ -141,8 +98,9 @@
         <a
           class="noLinkdecoration"
           href="https://twitter.com/hashtag/CodeNewbie?src=hashtag_click"
+          title="Code newbies on Twitter"
         >
-          <button type="button">
+          <button class="button" type="button">
             #codenewbie 🐣
           </button>
         </a>
