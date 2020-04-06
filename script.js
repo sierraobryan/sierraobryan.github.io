@@ -1,9 +1,9 @@
 var imageURLs = [
-  "https://cdn.glitch.com/f5f15289-fb5e-441e-bf01-6749baec062f%2Fyes.gif?v=1584147536505",
-  "https://cdn.glitch.com/f5f15289-fb5e-441e-bf01-6749baec062f%2Fc6ea5d80f7074265478ffc2349358a2b_yes-gifs-get-the-best-gif-on-giphy_480-480.gif?v=1585863649855",
-  "https://cdn.glitch.com/f5f15289-fb5e-441e-bf01-6749baec062f%2Fsource.gif?v=1585863660656",
-  "https://cdn.glitch.com/f5f15289-fb5e-441e-bf01-6749baec062f%2Fgiphy.gif?v=1585863672171", 
-  "https://cdn.glitch.com/f5f15289-fb5e-441e-bf01-6749baec062f%2Fyes-1.gif?v=1586147013369"
+  "images/yes.gif",
+  "images/yes-1.gif", 
+  "images/yes-2.gif", 
+  "images/yes-3.gif", 
+  "images/yes-4.gif" 
 ];
 function getImageSrc() {
   var randomIndex = Math.floor(Math.random() * imageURLs.length);
@@ -11,8 +11,7 @@ function getImageSrc() {
 }
 
 let counter = 0;
-var fireworkSrc =
-  "https://cdn.glitch.com/f5f15289-fb5e-441e-bf01-6749baec062f%2F8025d8cb93938f5b55a557e862c6e772.gif?v=1586032360025";
+var fireworkSrc = "images/firework.gif";
 var fireworkStyles = [
   "extra-small-firework",
   "small-firework",
