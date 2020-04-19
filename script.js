@@ -10,6 +10,7 @@ function getImageSrc() {
   return imageURLs[randomIndex];
 }
 
+let counter = 0; 
 var fireworkSrc = [
   "images/firework.gif", 
   "images/firework-1.gif", 
@@ -29,27 +30,30 @@ var fireworkStyles = [
 var fireworkIds = [];
 document.onclick = userClicked;
 function userClicked() {
-  var x = event.clientX + window.pageXOffset;
-  var y = event.clientY + window.pageYOffset;
-  var firework = document.createElement("img");
-  var fireworkId = setTimeout(hideImage, 4000);
-  firework.setAttribute("id", fireworkId);
-  document.querySelector("body").appendChild(firework);
-  fireworkIds.push(fireworkId);
-  updateFirework(fireworkId, x, y);
+  if (counter < 7) {
+    var x = event.clientX + window.pageXOffset;
+    var y = event.clientY + window.pageYOffset;
+    var firework = document.createElement("img");
+    var fireworkId = setTimeout(hideImage, 4000);
+    firework.setAttribute("id", fireworkId);
+    document.querySelector("body").appendChild(firework);
+    fireworkIds.push(fireworkId);
+    updateFirework(fireworkId, x, y);
+  }
 }
 
 function updateFirework(fireworkId, x, y) {
   var randomIndex = Math.floor(Math.random() * fireworkStyles.length);
   var updateFirework = document.getElementById(fireworkId);
   updateFirework.setAttribute("class", fireworkStyles[randomIndex]);
-  updateFirework.src = fireworkSrc;
+  updateFirework.src = fireworkSrc[counter % 7];
   updateFirework.style.display = "";
   updateFirework.style.position = "absolute";
   updateFirework.style.left =
     x - updateFirework.getBoundingClientRect().width / 2 + "px";
   updateFirework.style.top =
     y - updateFirework.getBoundingClientRect().height / 2 + "px";
+  counter++; 
 }
 
 function hideImage() {
@@ -57,4 +61,5 @@ function hideImage() {
   var firework = document.getElementById(fireworkIds[0]);
   firework.remove();
   fireworkIds.shift();
+  counter--; 
 }
