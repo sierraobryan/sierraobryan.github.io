@@ -19,20 +19,17 @@ var fireworkStyles = [
   "big-firework",
   "extra-big-firework"
 ];
-var fireworks = [];
 var fireworkIds = [];
 document.onclick = userClicked;
 function userClicked() {
   var x = event.clientX + window.pageXOffset;
   var y = event.clientY + window.pageYOffset;
-  var fireworkId = "firework" + counter;
   var firework = document.createElement("img");
+  var fireworkId = setTimeout(hideImage, 4000);
   firework.setAttribute("id", fireworkId);
   document.querySelector("body").appendChild(firework);
   fireworkIds.push(fireworkId);
-  counter++;
   updateFirework(fireworkId, x, y);
-  startTimer();
 }
 
 function updateFirework(fireworkId, x, y) {
@@ -48,15 +45,9 @@ function updateFirework(fireworkId, x, y) {
     y - updateFirework.getBoundingClientRect().height / 2 + "px";
 }
 
-function startTimer() {
-  var timerId = setTimeout(hideImage, 4000);
-  fireworks.push(timerId);
-}
-
 function hideImage() {
-  clearTimeout(fireworks[0]);
+  clearTimeout(fireworkIds[0]);
   var firework = document.getElementById(fireworkIds[0]);
   firework.remove();
-  fireworks.shift();
   fireworkIds.shift();
 }
