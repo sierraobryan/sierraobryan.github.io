@@ -10,8 +10,15 @@ function getImageSrc() {
   return imageURLs[randomIndex];
 }
 
-let counter = 0; 
-var fireworkSrc = "images/firework.gif";
+var fireworkSrc = [
+  "images/firework.gif", 
+  "images/firework-1.gif", 
+  "images/firework-2.gif", 
+  "images/firework-3.gif", 
+  "images/firework-4.gif", 
+  "images/firework-5.gif", 
+  "images/firework-6.gif", 
+];
 var fireworkStyles = [
   "extra-small-firework",
   "small-firework",
