@@ -10,7 +10,7 @@ function getImageSrc() {
   return imageURLs[randomIndex];
 }
 
-let counter = 0;
+let counter = 0; 
 var fireworkSrc = "images/firework.gif";
 var fireworkStyles = [
   "extra-small-firework",
@@ -19,31 +19,39 @@ var fireworkStyles = [
   "big-firework",
   "extra-big-firework"
 ];
+var fireworks = []; 
+var fireworks = [];
+var fireworkIds = [];
 document.onclick = userClicked;
 function userClicked() {
   var x = event.clientX + window.pageXOffset;
   var y = event.clientY + window.pageYOffset;
   var randomIndex = Math.floor(Math.random() * fireworkStyles.length);
-  var firework = document.getElementById("firework");
+  var firework = document.createElement("img");
+  var fireworkId = "firework" + counter;
+  firework.setAttribute("id", fireworkId);
   firework.setAttribute("class", fireworkStyles[randomIndex]);
+  firework.src = fireworkSrc;
   firework.style.display = "";
   firework.style.position = "absolute";
-  firework.style.left = x - firework.getBoundingClientRect().width / 2 + "px";
-  firework.style.top = y - firework.getBoundingClientRect().height / 2 + "px";
-  if (counter === 0) {
-    firework.setAttribute("src", fireworkSrc);
-    startTimer();
-    counter = 1;
-  }
+  firework.style.left = x - firework.width / 2 + "px";
+  firework.style.top = y - firework.height / 2 + "px";
+  document.querySelector("body").appendChild(firework);
+  fireworkIds.push(fireworkId);
+  startTimer();
 }
 
 function startTimer() {
-  setTimeout(hideImage, 4000);
+  var timerId = setTimeout(hideImage, 4000);
+  counter++; 
+  fireworks.push(timerId);
 }
 
 function hideImage() {
-  var firework = document.getElementById("firework");
+  clearTimeout(fireworks[0]);
+  var firework = document.getElementById(fireworkIds[0]);
   firework.setAttribute("src", "");
   firework.style.display = "none";
-  counter = 0;
+  fireworks.shift();
+  fireworkIds.shift();
 }
